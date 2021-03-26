@@ -1,0 +1,13 @@
+br
+div.info
+    | Connection1 speed(upload):
+    br
+    | KBps: #{one} KBps
+    br
+    | Mbps: #{two} Mbps
+    br
+    | MBps: #{three} MBps
+    form(action="/",method="post")
+        input(type="submit" hidden)
+        button.btn.btn-blue 
+            | check speed
