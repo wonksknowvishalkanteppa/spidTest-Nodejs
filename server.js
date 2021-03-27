@@ -21,14 +21,17 @@ app.post('/', (req, res) => {
     console.log("post");
     var speed;
     getNetworkUploadSpeed().then(resu => {
-        speed = resu;
-        console.log(speed);
-        res.render("index1", {
-            one: speed['kbps'] / 8,
-            two: speed['mbps'],
-            three: speed['mbps'] / 8
+            speed = resu;
+            console.log(speed);
+            res.render("index1", {
+                one: speed['kbps'] / 8,
+                two: speed['mbps'],
+                three: speed['mbps'] / 8
+            })
         })
-    });
+        .catch(e => {
+            console.log(e);
+        });
 });
 
 async function getNetworkUploadSpeed() {
