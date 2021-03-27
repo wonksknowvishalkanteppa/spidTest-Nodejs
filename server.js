@@ -11,6 +11,12 @@ const server = app.listen(port, () => {
     console.log(`Express running → PORT ${server.address().port}`);
 });
 
+process.stdout.on('error', function(err) {
+    if (err.code == "EPIPE") {
+        process.exit(0);
+    }
+});
+
 app.get('/', (req, res) => {
     console.log("get");
     res.render('index');
