@@ -31,13 +31,6 @@ app.post('/', (req, res) => {
     });
 });
 
-async function getNetworkDownloadSpeed() {
-    const baseUrl = 'https://eu.httpbin.org/stream-bytes/500000';
-    const fileSizeInBytes = 500000;
-    const speed = await testNetworkSpeed.checkDownloadSpeed(baseUrl, fileSizeInBytes);
-    console.log(`Download Speed: ${JSON.stringify(speed)}`);
-}
-
 async function getNetworkUploadSpeed() {
     const options = {
         hostname: 'www.google.com',
