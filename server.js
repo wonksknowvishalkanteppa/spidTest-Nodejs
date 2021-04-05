@@ -77,7 +77,6 @@ app.get("/", (req, res) => {
         "speedtest --no-download --simple",
         (err, stdout, stderr) => {
             if (err) {
-                //some err occurred
                 console.error(err);
                 send(res, 500, {
                     error: "There was an error while getting the list of servers.",
@@ -179,7 +178,7 @@ if (process.env.PROXY_PATH) {
 app.use(json());
 
 // console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port || process.env.PORT, () => console.log(`Listening on port ${port}`));
 
 function getMegabitsPerSecond(aBytes, aElapsed) {
     let megaBits = aBytes / 125000;
