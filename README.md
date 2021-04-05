@@ -1,1 +1,0 @@
-# spidTest-Nodejs
