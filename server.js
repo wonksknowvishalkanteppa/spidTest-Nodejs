@@ -178,7 +178,7 @@ if (process.env.PROXY_PATH) {
 app.use(json());
 
 // console.log that your server is up and running
-app.listen(port || process.env.PORT, () => console.log(`Listening on port ${port}`));
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
 
 function getMegabitsPerSecond(aBytes, aElapsed) {
     let megaBits = aBytes / 125000;
